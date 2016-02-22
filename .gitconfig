@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Tristan Watson
+	email = tristan.watson@protonmail.ch 
+[core] 
+	editor = vim
+[log] 
+	decorate = full
+[push]
+	default = simple	
