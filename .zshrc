@@ -86,3 +86,5 @@ source $ZSH/oh-my-zsh.sh
  alias home="ssh vieral@home.scarzy.xyz"
 # Calling z.sh script
 . /home/tristan/Work/scripts/z/z.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
