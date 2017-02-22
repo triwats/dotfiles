@@ -68,7 +68,8 @@ fi
 
 # ALIASES
 alias home="ssh vieral@home.scarzy.xyz"
-
+alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
+alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
 
 # Call z.sh script
 . /Users/$USER/Work/scripts/z/z.sh
