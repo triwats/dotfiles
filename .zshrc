@@ -1,5 +1,5 @@
 # Exports to ENV as $ZSH
-export ZSH=/Users/tristan/.oh-my-zsh
+export ZSH=/Users/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,7 +50,7 @@ plugins=(git zsh-syntax-highlighting vagrant)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -71,6 +71,6 @@ alias home="ssh vieral@home.scarzy.xyz"
 
 
 # Call z.sh script
-. /Users/tristan/Work/scripts/z/z.sh
+. /Users/$USER/Work/scripts/z/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
