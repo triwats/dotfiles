@@ -9,6 +9,7 @@ Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'elzr/vim-json'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
@@ -19,17 +20,19 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'cespare/vim-sbd'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Shougo/unite.vim'
 " Visuals
 Plug 'nanotech/jellybeans.vim'
+Plug 'elzr/vim-json'
 Plug 'sjl/badwolf'
 Plug 'chriskempson/base16-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'fxn/vim-monochrome'
 Plug 'croaker/mustang-vim'
 Plug 'sts10/vim-mustard'
+Plug 'hashivim/vim-terraform'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Set Colourscheme
@@ -43,10 +46,16 @@ set tabstop=4
 set smarttab
 set bs=1
 set ignorecase
+set softtabstop=4
+set shiftwidth=4
 set wildmenu
 set viminfo='125,<1000,s100,h
+set expandtab
 
-"Configuration for BufTabLine
+" Configure identLine
+let g:indentLine_leadingSpaceEnabled = 1
+
+" Configuration for BufTabLine
 let g:buftabline_indicators=1
 let g:buftabline_numbers=1
 
@@ -59,6 +68,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 nnoremap <silent> <C-x> :Sbd<CR>
 
 " CTRL-P Voodoo
+map <C-.> :CtrlPDir
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
@@ -100,6 +110,4 @@ if executable('FZF')
 
   command! -bang -nargs=* Ack call fzf#vim#ag(<q-args>, {'down': '40%', 'options': --no-color'})
   " }}}
-else
-  " CtrlP fallback
 end
