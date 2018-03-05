@@ -1,8 +1,13 @@
+# Append to history on execution
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/"
 
 # preferred editor for local and remote sessions
 # set vim for SSH sessions, but MacVim for Local

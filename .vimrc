@@ -32,11 +32,15 @@ Plug 'fxn/vim-monochrome'
 Plug 'croaker/mustang-vim'
 Plug 'sts10/vim-mustard'
 Plug 'hashivim/vim-terraform'
-Plug 'Yggdroot/indentLine'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 " Set Colourscheme
-colorscheme jellybeans
+colorscheme ayu
+
+" Theme specific
+set termguicolors
+let ayucolor="dark"
 
 " Behaviour
 set number
