@@ -51,7 +51,6 @@ if ! zgen saved; then
   zgen load junegunn/fzf shell/key-bindings.zsh
   zgen load rupa/z
   zgen load felixr/docker-zsh-completion
-  zgen load supercrabtree/k
   zgen save
 fi
 
