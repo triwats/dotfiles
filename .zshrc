@@ -28,7 +28,7 @@ alias ll='ls -lartFG'
 alias view='vim -R'
 alias publicip='curl http://ifconfig.me'
 alias nsupdate='rlwrap nsupdate'
-alias z='kubectl'
+alias k='kubectl'
 
 # call z.sh
 . /Users/$USER/Work/z/z.sh
