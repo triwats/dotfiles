@@ -9,7 +9,7 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY 
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python"
 
 # preferred editor for local and remote sessions
 # set vim for SSH sessions, but MacVim for Local
@@ -21,12 +21,14 @@ fi
 
 # aliases
 alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
+alias vim="nvim"
 alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
 alias ls='ls -FG'
 alias ll='ls -lartFG'
 alias view='vim -R'
 alias publicip='curl http://ifconfig.me'
 alias nsupdate='rlwrap nsupdate'
+alias z='kubectl'
 
 # call z.sh
 . /Users/$USER/Work/z/z.sh
@@ -62,3 +64,8 @@ source digsearch
 # This has to be at the end to function
 zgen load zsh-users/zsh-syntax-highlighting
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc'; fi
