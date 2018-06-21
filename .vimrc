@@ -1,40 +1,28 @@
 " ScarZy's vim config
-" tristan.watson@protonmail.ch
 " github.com/Skarzee
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'rodjek/vim-puppet'
-Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'elzr/vim-json'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
-Plug 'stephpy/vim-yaml'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
-Plug 'cespare/vim-sbd'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tomtom/tcomment_vim'
-Plug 'Shougo/unite.vim'
+Plug 'hashivim/vim-terraform'
+Plug 'elzr/vim-json'
 " Visuals
 Plug 'nanotech/jellybeans.vim'
-Plug 'elzr/vim-json'
 Plug 'sjl/badwolf'
 Plug 'chriskempson/base16-vim'
 Plug 'reedes/vim-colors-pencil'
-Plug 'fxn/vim-monochrome'
-Plug 'croaker/mustang-vim'
-Plug 'sts10/vim-mustard'
-Plug 'hashivim/vim-terraform'
-Plug 'ayu-theme/ayu-vim'
-Plug 'ekalinin/Dockerfile'
 call plug#end()
 
 " Set Colourscheme
@@ -42,7 +30,6 @@ colorscheme jellybeans
 
 " Theme specific
 set termguicolors
-let ayucolor="dark"
 
 " Behaviour
 set number
@@ -86,8 +73,12 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeBookmarksSort = 1
 
-" Pep8 Specific
+" PEP8 Specific
 let g:syntastic_python_flake8_post_args='---max-line-length=120 -ignore=E501,E128,E225'
+
+" Terraform
+let g:terraform_align=1
+
 
 " Change Position of FZF
 let g:fzf_layout = { 'window': 'enew' }
