@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'stephpy/vim-yaml'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
 Plug 'cespare/vim-sbd'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -33,10 +34,11 @@ Plug 'croaker/mustang-vim'
 Plug 'sts10/vim-mustard'
 Plug 'hashivim/vim-terraform'
 Plug 'ayu-theme/ayu-vim'
+Plug 'ekalinin/Dockerfile'
 call plug#end()
 
 " Set Colourscheme
-colorscheme ayu
+colorscheme jellybeans
 
 " Theme specific
 set termguicolors
@@ -44,7 +46,7 @@ let ayucolor="dark"
 
 " Behaviour
 set number
-set modelines=5 
+set modelines=5
 set hidden
 set tabstop=4
 set smarttab
@@ -84,8 +86,8 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeBookmarksSort = 1
 
-" SilverSearch (Ag)
-" nnoremap <C-s> :Ag 
+" Pep8 Specific
+let g:syntastic_python_flake8_post_args='---max-line-length=120 -ignore=E501,E128,E225'
 
 " Change Position of FZF
 let g:fzf_layout = { 'window': 'enew' }
@@ -114,4 +116,4 @@ if executable('FZF')
 
   command! -bang -nargs=* Ack call fzf#vim#ag(<q-args>, {'down': '40%', 'options': --no-color'})
   " }}}
-end
+:endif
