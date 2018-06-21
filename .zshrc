@@ -6,7 +6,7 @@ SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
-setopt SHARE_HISTORY 
+setopt SHARE_HISTORY
 
 # export mac os paths
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python"
@@ -62,6 +62,12 @@ source digsearch
 
 # This has to be at the end to function
 zgen load zsh-users/zsh-syntax-highlighting
+
+
+# python virtualenvwrapper 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc'; fi
