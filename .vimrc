@@ -18,15 +18,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tomtom/tcomment_vim'
 Plug 'hashivim/vim-terraform'
 Plug 'elzr/vim-json'
+Plug 'pearofducks/ansible-vim'
 " Visuals
 Plug 'nanotech/jellybeans.vim'
-Plug 'sjl/badwolf'
-Plug 'chriskempson/base16-vim'
-Plug 'reedes/vim-colors-pencil'
 call plug#end()
 
 " Set Colourscheme
-colorscheme jellybeans
+colorscheme jellybeans 
 
 " Theme specific
 set termguicolors
@@ -52,7 +50,7 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:buftabline_indicators=1
 let g:buftabline_numbers=1
 
-" Installation of powerline fonts for Pragmata
+" Installation of Powerline fonts for Pragmata
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -60,25 +58,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Smart Buffer Delete
 nnoremap <silent> <C-x> :Sbd<CR>
 
-" CTRL-P Voodoo
-map <C-.> :CtrlPDir
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 " NerdTree Params
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeBookmarksSort = 1
 
-" PEP8 Specific
-let g:syntastic_python_flake8_post_args='---max-line-length=120 -ignore=E501,E128,E225'
+" ALE Specific
+let g:ale_sign_column_always = 1
+let g:ale_yaml_yamllint_options = 'line-length: {max: 120}'
 
 " Terraform
 let g:terraform_align=1
-
 
 " Change Position of FZF
 let g:fzf_layout = { 'window': 'enew' }
