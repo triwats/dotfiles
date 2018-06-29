@@ -8,8 +8,8 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-" Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
@@ -18,7 +18,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tomtom/tcomment_vim'
 Plug 'hashivim/vim-terraform'
 Plug 'elzr/vim-json'
-Plug 'pearofducks/ansible-vim'
 " Visuals
 Plug 'nanotech/jellybeans.vim'
 call plug#end()
