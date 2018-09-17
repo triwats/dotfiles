@@ -9,7 +9,7 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python:/Library/Frameworks/Python.framework/Versions/2.7/bin"
 
 # preferred editor for local and remote sessions
 # set vim for SSH sessions, but MacVim for Local
@@ -45,17 +45,16 @@ source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
   echo "Creating a zgen save"
   zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
   zgen load junegunn/fzf
   zgen load junegunn/fzf shell/completion.zsh
   zgen load junegunn/fzf shell/key-bindings.zsh
-  zgen load rupa/z
   zgen load felixr/docker-zsh-completion
+  zgen load sindresorhus/pure
   zgen save
 fi
 
 # Source other scripts
-source digsearch
+source ~/digsearch
 
 # Use FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -63,14 +62,14 @@ source digsearch
 # This has to be at the end to function
 zgen load zsh-users/zsh-syntax-highlighting
 
-
 # python virtualenvwrapper 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/path.zsh.inc'; fi
+# Inclusion of GOPATH
+export GOPATH="$HOME/Work/go"
+export PATH=$PATH:$GOPATH/bin
 
-# The next line enables shell command completion for gcloud.
+# Enable completion for gcloud
 if [ -f '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc'; fi

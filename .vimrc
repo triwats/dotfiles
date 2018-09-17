@@ -32,15 +32,16 @@ set termguicolors
 set number
 set modelines=5
 set hidden
-set tabstop=4
+set tabstop=2
 set smarttab
 set bs=1
 set ignorecase
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set wildmenu
 set viminfo='125,<1000,s100,h
 set expandtab
+set autoindent
 
 " Configure identLine
 let g:indentLine_leadingSpaceEnabled = 1
