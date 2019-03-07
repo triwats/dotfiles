@@ -55,9 +55,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Smart Buffer Delete
-nnoremap <silent> <C-x> :Sbd<CR>
-
 " NerdTree Params
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
@@ -77,7 +74,7 @@ let g:fzf_layout = { 'window': 'enew' }
 if executable('FZF')
   " FZF {{{
   " <C-p> or <C-t> to search files
-  nnoremap <silent> <C-s> :FZF -m<cr>
+  nnoremap <silent> <C-f> :FZF -m<cr>
 
   " <M-p> for open buffers
   nnoremap <silent> <M-p> :Buffers<cr>

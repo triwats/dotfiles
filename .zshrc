@@ -13,25 +13,22 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr
 
 # preferred editor for local and remote sessions
 # set vim for SSH sessions, but MacVim for Local
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # aliases
 alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
-alias vim="nvim"
+alias vi="vim"
+alias vim="vim"
 alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
 alias ls='ls -FG'
 alias ll='ls -lartFG'
 alias view='vim -R'
 alias publicip='curl http://ifconfig.me'
-alias nsupdate='rlwrap nsupdate'
+alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
+alias h='helm'
+alias tf='terraform'
 alias k='kubectl'
-
-# call z.sh
-. /Users/$USER/Work/z/z.sh
+alias kx='kubectx'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -50,6 +47,7 @@ if ! zgen saved; then
   zgen load junegunn/fzf shell/key-bindings.zsh
   zgen load felixr/docker-zsh-completion
   zgen load sindresorhus/pure
+  zgen load superbrothers/zsh-kubectl-prompt
   zgen save
 fi
 
@@ -62,14 +60,24 @@ source ~/digsearch
 # This has to be at the end to function
 zgen load zsh-users/zsh-syntax-highlighting
 
-# python virtualenvwrapper 
+# python virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Inclusion of GOPATH
-export GOPATH="$HOME/Work/go"
+export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 
 # Enable completion for gcloud
 if [ -f '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/watsont/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Use GPG agent for ssh for use with Yubikeys 
+export "GPG_TTY=$(tty)"
+export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
