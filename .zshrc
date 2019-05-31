@@ -51,33 +51,21 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Source other scripts
-source ~/digsearch
-
 # Use FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # This has to be at the end to function
 zgen load zsh-users/zsh-syntax-highlighting
 
-# python virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Inclusion of GOPATH
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 
-# Enable completion for gcloud
-if [ -f '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/watsont/gcp/google-cloud-sdk/completion.zsh.inc'; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/watsont/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Use GPG agent for ssh for use with Yubikeys 
-export "GPG_TTY=$(tty)"
-export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+gpg-connect-agent updatestartuptty /bye

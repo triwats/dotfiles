@@ -18,12 +18,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tomtom/tcomment_vim'
 Plug 'hashivim/vim-terraform'
 Plug 'elzr/vim-json'
-" Visuals
-Plug 'nanotech/jellybeans.vim'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Set Colourscheme
-colorscheme jellybeans 
+colorscheme nord
 
 " Theme specific
 set termguicolors
