@@ -4,5 +4,10 @@
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
+    ~/.gnupg/gpg-agent.conf:
+      force: true
+      create: true
+      path: gpg-agent.conf
+    
 
 

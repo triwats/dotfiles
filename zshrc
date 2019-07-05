@@ -16,10 +16,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr
 export EDITOR='vim'
 
 # aliases
-alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
 alias vi="vim"
 alias vim="vim"
-alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
 alias ls='ls -FG'
 alias ll='ls -lartFG'
 alias view='vim -R'
@@ -29,9 +27,6 @@ alias h='helm'
 alias tf='terraform'
 alias k='kubectl'
 alias kx='kubectx'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Set emacs keybinding (ctrl+a usage etc)
 bindkey -e
@@ -51,30 +46,19 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Source other scripts
-source ~/digsearch
-
 # Use FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# This has to be at the end to function
-zgen load zsh-users/zsh-syntax-highlighting
 
 # python virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Inclusion of GOPATH
-export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
-
-# Use GPG agent for ssh for use with Yubikeys 
-export "GPG_TTY=$(tty)"
-export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/twatson/Downloads/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/twatson/Downloads/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+# Use GPG agent for ssh for use with Yubikeys 
+export "GPG_TTY=$(tty)"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/twatson/Downloads/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/twatson/Downloads/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+# This has to be at the end to function
+zgen load zsh-users/zsh-syntax-highlighting
+export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
