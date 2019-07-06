@@ -49,16 +49,10 @@ fi
 # Use FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# python virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# Use GPG agent for ssh for use with Yubikeys
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+gpg-connect-agent updatestartuptty /bye
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/twatson/Downloads/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/twatson/Downloads/gcloud/google-cloud-sdk/path.zsh.inc'; fi
-# Use GPG agent for ssh for use with Yubikeys 
-export "GPG_TTY=$(tty)"
-
-# This has to be at the end to function
+# Ensure this is as the end as per documentation
 zgen load zsh-users/zsh-syntax-highlighting
-export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
