@@ -16,7 +16,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr
 export EDITOR='vim'
 
 # aliases
-alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
 alias vi="vim"
 alias vim="vim"
 alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
@@ -61,11 +60,10 @@ zgen load zsh-users/zsh-syntax-highlighting
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 
-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Use GPG agent for ssh for use with Yubikeys 
 export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+export SSH_AUTH_SOCKET=$HOME/.gnupg/S.gpg-agent.ssh
 gpg-connect-agent updatestartuptty /bye
