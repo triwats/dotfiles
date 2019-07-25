@@ -65,5 +65,5 @@ if [ -f '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 # Use GPG agent for ssh for use with Yubikeys 
 export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCKET=$HOME/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 gpg-connect-agent updatestartuptty /bye
