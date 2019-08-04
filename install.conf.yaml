@@ -8,6 +8,10 @@
       force: true
       create: true
       path: gpg-agent.conf
+    ~/.config/sway/config:
+      force: true
+      create: true
+      path: sway-config
     
 
 

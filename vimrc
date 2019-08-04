@@ -23,7 +23,7 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Set Colourscheme
-colorscheme nord
+colorscheme jellybeans
 
 " Theme specific
 set termguicolors
