@@ -1,0 +1,8 @@
+{
+    "editor.insertSpaces": true,   
+    "editor.tabSize": 2,
+    "python.venvPath": "${env:HOME}/.venvs",
+    "vim.useSystemClipboard": true,
+    "python.pythonPath": "/home/marco/.virtualenvs/probe/bin/python",
+     
+}

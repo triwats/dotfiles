@@ -54,18 +54,18 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 gpg-connect-agent updatestartuptty /bye
 
-# Case Statement to change behaviour based on OS
-case "$OSTYPE" in
-  darwin*)
-    # ...
-  ;;
-  linux*)
-    setxkbmap -layout us -option ctrl:nocaps
-    if [ "$(tty)" = "/dev/tty1" ]; then
-	    exec sway
-    fi
-  ;;
-esac
+## Case Statement to change behaviour based on OS
+#case "$OSTYPE" in
+#  darwin*)
+#    # ...
+#  ;;
+#  linux*)
+#    setxkbmap -layout us -option ctrl:nocaps
+#    if [ "$(tty)" = "/dev/tty1" ]; then
+#	    exec sway > /var/log/sway.log 2>&1
+#    fi
+#  ;;
+#esac
 
 # Ensure this is as the end as per documentation
 zgen load zsh-users/zsh-syntax-highlighting
