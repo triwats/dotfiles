@@ -49,9 +49,6 @@ fi
 # Use FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Allow searching of Hidden files
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-
 # Use GPG agent for ssh for use with Yubikeys
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
