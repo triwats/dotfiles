@@ -27,6 +27,7 @@ alias h='helm'
 alias tf='terraform'
 alias k='kubectl'
 alias kx='kubectx'
+alias kc='kubectl config current-context'
 
 # Set emacs keybinding (ctrl+a usage etc)
 bindkey -e
