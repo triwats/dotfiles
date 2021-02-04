@@ -16,6 +16,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr
 export EDITOR='vim'
 
 # aliases
+alias grep="grep -Irn"
 alias vi="vim"
 alias vim="vim"
 alias ls='ls -FG'
