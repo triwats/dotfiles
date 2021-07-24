@@ -1,7 +1,9 @@
 - clean: ['~']
 
 - link:
-    ~/.gitconfig: gitconfig
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
     ~/.gnupg/gpg-agent.conf:
