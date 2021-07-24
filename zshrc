@@ -9,14 +9,13 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/tristan.watson/Library/Python/2.7/bin:~/bin/"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:$PATH"
 
 # preferred editor for local and remote sessions
-# set vim for SSH sessions, but MacVim for Local
 export EDITOR='vim'
 
 # aliases
-alias grep="grep -Irn"
+alias grep="grep"
 alias vi="vim"
 alias vim="vim"
 alias ls='ls -FG'
@@ -43,18 +42,18 @@ if ! zgen saved; then
   zgen load junegunn/fzf shell/completion.zsh
   zgen load junegunn/fzf shell/key-bindings.zsh
   zgen load felixr/docker-zsh-completion
-  zgen load sindresorhus/pure
   zgen load superbrothers/zsh-kubectl-prompt
+  zgen load miekg/lean
   zgen save
 fi
 
-# Use FZF
+# Use FZF for history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Use GPG agent for ssh for use with Yubikeys
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+# Use GPG agent for ssh for use with U2F keys
+#export GPG_TTY="$(tty)"
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#gpgconf --launch gpg-agent
 
 ## Case Statement to change behaviour based on OS
 #case "$OSTYPE" in
@@ -69,17 +68,6 @@ gpgconf --launch gpg-agent
 #  ;;
 #esac
 
-# Ensure this is as the end as per documentation
+# Ensure these is as the end as per documentation
+# May need to install Starship separately
 zgen load zsh-users/zsh-syntax-highlighting
-
-# Ensure that we're using Python 3
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/sbin:$PATH"
-source $HOME/Library/Python/3.7/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/venvs
-export PROJECT_HOME=$HOME/src
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tristan.watson/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tristan.watson/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/tristan.watson/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tristan.watson/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
