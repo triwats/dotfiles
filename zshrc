@@ -9,7 +9,7 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:$PATH"
+export PATH="$PATH:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/usr/local/bin/"
 
 # preferred editor for local and remote sessions
 export EDITOR='vim'

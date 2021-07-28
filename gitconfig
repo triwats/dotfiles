@@ -3,8 +3,16 @@
 	name = Tristan Watson
 	email = tristan@thinkastructure.com
 [core] 
-	editor = vim
+  editor = vim
+  whitespace = -trailing-space
 [log] 
 	decorate = full
 [push]
-	default = simple	
+  default = simple	
+[diff]
+  renames = true
+[grep]
+  break = true
+  heading = true
+  lineNumber = true
+  extendedRegexp = true
