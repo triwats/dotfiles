@@ -19,7 +19,7 @@ alias grep="grep"
 alias vi="vim"
 alias vim="vim"
 alias ls='ls -FG'
-alias ll='ls -lartFG'
+alias ll='ls -lartFGh'
 alias view='vim -R'
 alias publicip='curl http://ifconfig.me'
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
@@ -71,3 +71,4 @@ fi
 # Ensure these is as the end as per documentation
 # May need to install Starship separately
 zgen load zsh-users/zsh-syntax-highlighting
+export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"

@@ -19,6 +19,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'hashivim/vim-terraform'
 Plug 'elzr/vim-json'
 Plug 'arcticicestudio/nord-vim'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " Set Colourscheme
