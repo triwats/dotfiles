@@ -61,6 +61,9 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeBookmarksSort = 1
 
+" Allow searching of hidden files 
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+
 " ALE Specific
 let g:ale_sign_column_always = 1
 let g:ale_yaml_yamllint_options = 'line-length: {max: 120}'

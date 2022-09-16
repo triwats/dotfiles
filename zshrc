@@ -43,7 +43,7 @@ if ! zgen saved; then
   zgen load junegunn/fzf shell/key-bindings.zsh
   zgen load felixr/docker-zsh-completion
   zgen load superbrothers/zsh-kubectl-prompt
-  zgen load miekg/lean
+  zgen load spaceship-prompt/spaceship-prompt spaceship
   zgen save
 fi
 
@@ -67,6 +67,8 @@ fi
 #    fi
 #  ;;
 #esac
+#
+SPACESHIP_CHAR_SYMBOL="$ "
 
 # Ensure these is as the end as per documentation
 # May need to install Starship separately
