@@ -1,4 +1,3 @@
-# Append to history on execution
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
@@ -9,18 +8,17 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 # export mac os paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/usr/local/lib/python2.7/site-packages:/usr/local/bin/python:/Library/Frameworks/Python.framework/Versions/2.7/bin"
+export PATH="$PATH:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/usr/local/bin/"
 
 # preferred editor for local and remote sessions
-# set vim for SSH sessions, but MacVim for Local
 export EDITOR='vim'
 
 # aliases
+alias grep="grep"
 alias vi="vim"
 alias vim="vim"
-alias showjava "/usr/libexec/java_home -V" # Show java versions MacOS
 alias ls='ls -FG'
-alias ll='ls -lartFG'
+alias ll='ls -lartFGh'
 alias view='vim -R'
 alias publicip='curl http://ifconfig.me'
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
@@ -28,9 +26,7 @@ alias h='helm'
 alias tf='terraform'
 alias k='kubectl'
 alias kx='kubectx'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+alias kc='kubectl config current-context'
 
 # Set emacs keybinding (ctrl+a usage etc)
 bindkey -e
@@ -45,25 +41,36 @@ if ! zgen saved; then
   zgen load junegunn/fzf shell/completion.zsh
   zgen load junegunn/fzf shell/key-bindings.zsh
   zgen load felixr/docker-zsh-completion
-  zgen load sindresorhus/pure
+  zgen load lukechilds/zsh-nvm
   zgen load superbrothers/zsh-kubectl-prompt
   zgen save
 fi
 
-# Use FZF
+# use FZF for history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# This has to be at the end to function
-zgen load zsh-users/zsh-syntax-highlighting
+precmd() { print "" }
+parse_git_branch() {
+    git symbolic-ref --short HEAD 2> /dev/null
+}
 
-# Inclusion of GOPATH
-export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
+setopt prompt_subst
+PROMPT='%B[%b%T%B]%b %B%n%b@%m %9c %{%F{red}%}$(parse_git_branch)%{%F{none}%}$ '
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/watsont/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 
-# Use GPG agent for ssh for use with Yubikeys 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-gpg-connect-agent updatestartuptty /bye
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # this loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/tristan.watson/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
