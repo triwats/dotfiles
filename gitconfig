@@ -16,5 +16,3 @@
   heading = true
   lineNumber = true
   extendedRegexp = true
-[pull]
-	ff = true
