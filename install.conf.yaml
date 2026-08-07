@@ -6,14 +6,26 @@
       path: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
-    ~/.gnupg/gpg-agent.conf:
-      force: true
-      create: true
-      path: gpg-agent.conf
     ~/.config/sway/config:
       force: true
       create: true
       path: sway-config
-    
 
+# gpg-agent.conf has no `include` directive, and pinentry-program requires a
+# literal absolute path (no ~ or $HOME expansion), so a single shared file
+# cannot work across platforms. Two variants, selected by uname.
+# These are separate `link:` blocks on purpose: both map the same destination,
+# which would collide as a duplicate key inside one block.
+- link:
+    ~/.gnupg/gpg-agent.conf:
+      if: '[ "$(uname -s)" = "Darwin" ]'
+      force: true
+      create: true
+      path: gpg-agent-macos.conf
 
+- link:
+    ~/.gnupg/gpg-agent.conf:
+      if: '[ "$(uname -s)" != "Darwin" ]'
+      force: true
+      create: true
+      path: gpg-agent-linux.conf
