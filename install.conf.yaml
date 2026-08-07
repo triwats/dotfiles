@@ -10,6 +10,8 @@
       force: true
       create: true
       path: sway-config
+    
+
 
 # gpg-agent.conf has no `include` directive, and pinentry-program requires a
 # literal absolute path (no ~ or $HOME expansion), so a single shared file
